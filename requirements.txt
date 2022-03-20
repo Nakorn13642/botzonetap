@@ -1,7 +1,6 @@
 geopy
 xlrd
 Flask==0.11.1
-post
 requests
 wikipedia
 line-bot-sdk
@@ -9,3 +8,4 @@ gunicorn==19.6.0
 pandas==0.20.3
 googletrans
 get
+post
