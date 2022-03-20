@@ -1,5 +1,5 @@
 Flask==0.11.1
-get
+get==
 gunicorn==19.6.0
 post
 requests
