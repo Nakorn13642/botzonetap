@@ -1,5 +1,3 @@
-Flask==0.11.1
-gunicorn==19.6.0
 get
 post
 requests
@@ -9,3 +7,5 @@ pandas==0.20.3
 googletrans
 geopy
 xlrd
+Flask==0.11.1
+gunicorn==19.6.0
