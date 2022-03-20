@@ -1,6 +1,6 @@
 Flask==0.11.1
-get==
 gunicorn==19.6.0
+get
 post
 requests
 wikipedia
