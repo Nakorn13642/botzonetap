@@ -5,5 +5,5 @@ requests
 wikipedia
 line-bot-sdk
 gunicorn==19.6.0
-pandas==0.20.3
+pandas
 googletrans
