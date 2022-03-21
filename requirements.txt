@@ -1,11 +1,9 @@
 geopy
 xlrd
-Flask==0.11.1
+Flask
 requests
 wikipedia
 line-bot-sdk
 gunicorn==19.6.0
 pandas
 googletrans
-POST
-GET
