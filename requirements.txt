@@ -7,5 +7,5 @@ line-bot-sdk
 gunicorn==19.6.0
 pandas
 googletrans
-post
-get
+POST
+GET
