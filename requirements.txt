@@ -4,6 +4,6 @@ Flask
 requests
 wikipedia
 line-bot-sdk
-gunicorn==19.6.0
+gunicorn
 pandas
 googletrans
