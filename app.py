@@ -2,11 +2,12 @@
 #-*-coding: utf-8 -*-
 ##from __future__ import absolute_import
 ###
+#from turtle import distance
 from flask import Flask, jsonify, render_template, request
 import json
 import numpy as np
 import pandas as pd
-import geodesic as ps
+from geopy import distance
 
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,TemplateSendMessage,ImageSendMessage, StickerSendMessage, AudioSendMessage
@@ -102,7 +103,7 @@ def getdistace(latitude, longitude,cdat):
   kmsumList = []
   for latlng in latlngList:
     coords_2 = (float(latlng[0]),float(latlng[1]))
-    kmsumList.append(ps.vincenty(coords_1, coords_2).km)
+    kmsumList.append(distance.distance(coords_1, coords_2).km)
   cdat['km'] = kmsumList
   return cdat
 
