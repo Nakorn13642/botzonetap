@@ -5,7 +5,7 @@
 from flask import Flask, jsonify, render_template, request
 import json
 import numpy as np
-import pandas as pd
+import openpyxl as pd
 import geopy.distance as ps
 
 from linebot.models import (
