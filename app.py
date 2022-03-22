@@ -6,7 +6,7 @@ from flask import Flask, jsonify, render_template, request
 import json
 import numpy as np
 import pandas as pd
-from geopy.distance import geodesic as ps
+import geodesic as ps
 
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,TemplateSendMessage,ImageSendMessage, StickerSendMessage, AudioSendMessage
