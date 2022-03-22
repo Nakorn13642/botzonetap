@@ -1,4 +1,4 @@
-geopy
+geopy.distance
 xlrd
 Flask
 requests
