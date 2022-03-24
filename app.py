@@ -67,7 +67,7 @@ def event_handle(event):
 
     if msgType == "text":
         msg = str(event["message"]["text"])
-        replyObj = TextSendMessage(text=msg)
+        replyObj = handle_text(msg)
         line_bot_api.reply_message(rtoken, replyObj)
 
     if msgType == "location":
@@ -109,3 +109,84 @@ def getdistace(latitude, longitude,cdat):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+########################################### flex ################################################
+
+def flexmessage(query):
+    res = getdata(query)
+    if res == 'nodata':
+        return 'nodata'
+    else:
+        productName,imgUrl,desc,cont = res
+    flex = '''
+    {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "%s",
+          "margin": "none",
+          "size": "full",
+          "aspectRatio": "1:1",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com"
+          },
+          "contents": [
+            {
+              "type": "text",
+              "text": "%s",
+              "size": "xl",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "%s",
+              "wrap": true
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "ติดต่อคนขาย",
+                "data": "%s"
+              },
+              "color": "#F67878",
+              "style": "primary"
+            }
+          ]
+        }
+      }'''%(imgUrl,productName,desc,cont)
+    return flex
+
+
+
+from linebot.models import (TextSendMessage,FlexSendMessage)
+import json
+
+def handle_text(inpmessage):
+    flex = flexmessage(inpmessage)
+    if flex == 'nodata':
+        replyObj = TextSendMessage(text=inpmessage)
+    else:
+        flex = json.loads(flex)
+        replyObj = FlexSendMessage(alt_text='Flex Message alt text', contents=flex)
+    return replyObj
