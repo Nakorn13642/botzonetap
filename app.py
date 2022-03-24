@@ -91,7 +91,8 @@ def handle_location(lat,lng,cdat,topK):
     for i in range(len(result)):
         kmdistance = '%.3f'%(result.iloc[i]['km'])
         newssource = str(result.iloc[i]['News_Soruce'])
-        txtResult = txtResult + 'ห่าง %s กิโลเมตร\n%s\n\n'%(kmdistance,newssource)
+        dig = str(result.iloc[i]['Digsilent'])
+        txtResult = txtResult + 'ห่าง %s กิโลเมตร\n%s\n\n\n\n%s\n\n'%(kmdistance,newssource,dig)
     return txtResult[0:-2]
 
 
