@@ -92,8 +92,8 @@ def handle_location(lat,lng,cdat,topK):
         kmdistance = '%.3f'%(result.iloc[i]['km'])
         newssource = str(result.iloc[i]['News_Soruce'])
         dig = str(result.iloc[i]['Digsilent'])
-        txtResult = txtResult + 'ห่าง %s กิโลเมตร\n%s\n\n\n\n%s\n\n'%(kmdistance,newssource,dig)
-    return txtResult[0:-2]
+        txtResult = txtResult + 'ห่าง %s กิโลเมตร\n%s\n%s\n\n'%(kmdistance,newssource,dig)
+    return txtResult[0:-3]
 
 
 def getdistace(latitude, longitude,cdat):
@@ -201,5 +201,5 @@ def handle_text(inpmessage):
         replyObj = TextSendMessage(text=inpmessage)
     else:
         flex = json.loads(flex)
-        replyObj = FlexSendMessage(alt_text='Flex Message alt text', contents=flex)
+        replyObj = FlexSendMessage(alt_text='Flex Message', contents=flex)
     return replyObj
