@@ -113,6 +113,18 @@ if __name__ == '__main__':
 
 ########################################### flex ################################################
 
+dat = pd.read_excel('addb.xlsx')
+def getdata(query):
+    res = dat[dat['QueryWord']==query]
+    if len(res)==0:
+        return 'nodata'
+    else:
+        productName = res['ProductName'].values[0]
+        imgUrl = res['ImgUrl'].values[0]
+        desc = res['Description'].values[0]
+        cont = res['Contact'].values[0]
+        return productName,imgUrl,desc,cont
+
 def flexmessage(query):
     res = getdata(query)
     if res == 'nodata':
