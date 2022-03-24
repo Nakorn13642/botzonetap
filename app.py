@@ -90,10 +90,17 @@ def handle_location(lat,lng,cdat,topK):
     txtResult = ''
     for i in range(len(result)):
         kmdistance = '%.3f'%(result.iloc[i]['km'])
-        newssource = str(result.iloc[i]['News_Soruce'])
+        wordpeano = str(result.iloc[i]['pea_no'])
+        trpeano = str(result.iloc[i]['FACILITYID'])
+        nokva = str(result.iloc[i]['RATEKVA'])
+        wordkva = str(result.iloc[i]['kva'])
+        wordtapnow = str(result.iloc[i]['tap_now'])
+        tapnow = str(result.iloc[i]['PRESENTTAP'])
+        wordtapdig = str(result.iloc[i]['tap_dig'])
         dig = str(result.iloc[i]['Digsilent'])
-        txtResult = txtResult + 'ห่าง %s กิโลเมตร\n%s\n%s\n\n'%(kmdistance,newssource,dig)
-    return txtResult[0:-3]
+        locationinstall = str(result.iloc[i]['LOCATION'])
+        txtResult = txtResult + 'ห่าง %s กิโลเมตร\n%s %s\nขนาด%s %s\n%s %s\n%s %s\n%s\n\n'%(kmdistance,wordpeano,trpeano,nokva,wordkva,wordtapnow,tapnow,wordtapdig,dig,locationinstall)
+    return txtResult[0:-2]
 
 
 def getdistace(latitude, longitude,cdat):
