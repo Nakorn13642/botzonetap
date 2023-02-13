@@ -3,6 +3,7 @@
 ##from __future__ import absolute_import
 ###
 #from turtle import distance
+from cgitb import handler
 from flask import Flask, jsonify, render_template, request
 import json
 import numpy as np
@@ -21,6 +22,7 @@ app = Flask(__name__)
 
 lineaccesstoken = 'dJtnbsqh9hkNLHAEmUIc66luvjc0hLu0IKHP4t1X7gxkbcJuhGWR9XTZX8/vD3ASvR7w0ufluAsmTVDkCqtLyyYS5Llknui2+1DjMJgRsUggppWc1+uM/2mi7sYbbXSOMo3qlET73lZLBak5b233AwdB04t89/1O/w1cDnyilFU='
 line_bot_api = LineBotApi(lineaccesstoken)
+handler = WebhookHandler('e14c646a3e08f6afb5f5ccf3d7ed6c2e')
 
 casedata = pd.read_excel('casedata.xlsx')
 
